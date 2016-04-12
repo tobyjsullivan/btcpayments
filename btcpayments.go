@@ -1,14 +1,13 @@
 package main
 
 import (
+	"os"
 
 	"github.com/codegangsta/negroni"
-	"os"
 )
 
 func main() {
 	router := buildRouter()
-
 
 	n := negroni.Classic()
 	n.UseHandler(router)
@@ -19,5 +18,5 @@ func main() {
 		port = "3000"
 	}
 
-	n.Run(":"+port)
+	n.Run(":" + port)
 }

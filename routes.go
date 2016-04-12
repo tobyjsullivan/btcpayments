@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/gorilla/mux"
-	"net/http"
 	"fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
 	"github.com/tobyjsullivan/btcpayments/handlers"
 )
 

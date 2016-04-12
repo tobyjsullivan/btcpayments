@@ -1,10 +1,11 @@
 package handlers
 
 import (
-	"net/http"
-	"github.com/tobyjsullivan/btcpayments/btc"
-	"fmt"
 	"encoding/json"
+	"fmt"
+	"net/http"
+
+	"github.com/tobyjsullivan/btcpayments/btc"
 )
 
 func WalletsPostHandler(w http.ResponseWriter, req *http.Request) {
@@ -16,7 +17,7 @@ func WalletsPostHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	display := &walletDisplay{
-		Address: wallet.GetAddress(),
+		Address:       wallet.GetAddress(),
 		PrivateKeyWIF: wallet.GetPrivateKeyWIF()}
 
 	out, err := json.Marshal(display)
@@ -30,6 +31,6 @@ func WalletsPostHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 type walletDisplay struct {
-	Address string `json:"address"`
+	Address       string `json:"address"`
 	PrivateKeyWIF string `json:"private-key-wif"`
 }

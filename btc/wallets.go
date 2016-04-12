@@ -1,8 +1,9 @@
 package btc
 
 import (
-	"github.com/tobyjsullivan/btckeygenie/btckey"
 	"crypto/rand"
+
+	"github.com/tobyjsullivan/btckeygenie/btckey"
 )
 
 type Wallet interface {
@@ -40,4 +41,3 @@ func (w *walletImpl) GetPrivateKeyWIF() string {
 var (
 	generateBtcKey = btckey.GenerateKey
 )
-
