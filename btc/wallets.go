@@ -11,8 +11,7 @@ type Wallet interface {
 }
 
 func GenerateWallet() (Wallet, error) {
-	rand := rand.Reader
-	priv, err := btckey.GenerateKey(rand)
+	priv, err := generateBtcKey(rand.Reader)
 
 	if err != nil {
 		return nil, err
@@ -28,6 +27,7 @@ type walletImpl struct {
 	btckey btckey.PrivateKey
 }
 
+// Produces a compressed bitcoin address
 func (w *walletImpl) GetAddress() string {
 	return w.btckey.ToAddress()
 }
@@ -36,4 +36,8 @@ func (w *walletImpl) GetPrivateKeyWIF() string {
 	return w.btckey.ToWIF()
 }
 
+// Overrides for testing
+var (
+	generateBtcKey = btckey.GenerateKey
+)
 
