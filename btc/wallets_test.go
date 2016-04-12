@@ -1,10 +1,11 @@
 package btc
 
 import (
-	"testing"
-	"io"
-	"github.com/tobyjsullivan/btckeygenie/btckey"
 	"errors"
+	"io"
+	"testing"
+
+	"github.com/tobyjsullivan/btckeygenie/btckey"
 )
 
 func TestGenerateWallet_Success(t *testing.T) {
